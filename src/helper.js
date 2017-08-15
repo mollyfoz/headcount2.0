@@ -12,9 +12,12 @@ export default class DistrictRepository {
       return acc
     }, {})
   }
-  findByName(name = undefined) {
+
+  findByName(name) {
+    if(name) {
     let keys = Object.keys(this.data);
-    let found = keys.find(location => location === name)
+    let found = keys.find(location => location.toUpperCase() === name.toUpperCase())
     return this.data[found]
+  }
   }
 }

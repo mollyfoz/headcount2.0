@@ -1,16 +1,18 @@
 import React from 'react';
 import DistrictRepository from './helper'
 
-const Card = ({ location, year, data, average }) =>  {
+const Card = ({ location, data, average }) =>  {
+  const keys = Object.keys(data)
 
+  let keyVals = keys.map((key, i)=>{
+   return  <p key={ i }>{key}: {data[key]}</p>
+  })
   return (
     <div className='data-card'>
-      <h3>Title</h3>
-      <ul>
-        <li>data</li>
-        <li>data</li>
-        <li>data</li>
-      </ul>
+      <h3>{location}</h3>
+      <div>
+        {keyVals}
+      </div>
     </div>
   )
 }

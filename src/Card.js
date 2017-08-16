@@ -1,11 +1,16 @@
 import React from 'react';
 import DistrictRepository from './helper'
 
-const Card = ({ data }) =>  {
+const Card = ({ location, year, data, average }) =>  {
 
   return (
     <div className='data-card'>
-      { data.Location }
+      <h3>Title</h3>
+      <ul>
+        <li>data</li>
+        <li>data</li>
+        <li>data</li>
+      </ul>
     </div>
   )
 }

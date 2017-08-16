@@ -1,22 +1,14 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Card from './Card';
 
-export default class Container extends Component {
-  constructor() {
-    super();
+const Container = ({ districtInfo }) => {
+  const districtArray = districtInfo.map(district => <Card key={district.id} {...district} />)
 
-  }
-  render () {
     return (
       <div className='card-container'>
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-        <Card />
+        { districtArray }
       </div>
     )
-  }
 }
+
+export default Container;

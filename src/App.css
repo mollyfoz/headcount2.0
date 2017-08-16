@@ -15,3 +15,14 @@
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+input {
+  width: 300px;
+  margin: 0 auto;
+}
+
+button {
+  width: 200px;
+  margin: 0 auto;
+  background-color: magenta;
+}

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import DistrictRepository from './helper';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
-// import Controls from './Controls.js';
+import Controls from './Controls.js';
 import Container from './Container'
 import './App.css';
 
@@ -15,23 +15,18 @@ class App extends Component {
       }
   }
 
-  // searchDistricts() {
-  //   this.setState({
-  //     data: this.districtInfo.findAllMatches()
-  //   })
-  //   console.log(this.districtInfo.findAllMatches())
-  // }
-
-  // componentDidMount() {
-  //   // this.searchDistricts();
-  //   console.log(this.state.data)
-  // }
+  searchDistricts(string) {
+    this.setState({
+      data: districtInfo.findAllMatches(string)
+    })
+  }
 
   render() {
     console.log(this.state.data)
     return (
       <div>
         <h1>HeadCount</h1>
+          <Controls  searchDistricts={ this.searchDistricts.bind(this)}/>
           <Container districtData={ this.state.data } />
       </div>
     );

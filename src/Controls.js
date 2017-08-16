@@ -1,36 +1,30 @@
 import React, { Component } from 'react';
-import DistrictRepository from './helper';
-
 
 export default class Controls extends Component {
-  constructor(kinderData) {
+  constructor() {
     super();
-    this.data = DistrictRepository.data;
     this.state = {
       input: '',
+      disabled: true,
     };
   };
 
-  setInput(e) {
-    this.setState({ input: e.target.value })
+  setInputState(e) {
+    this.setState({ input: e.target.value, disabled: false }, () => {
+      this.props.searchDistricts(this.state.input)
+    })
   }
 
+  render() {
+    return(
+      <div>
+        <input
+          placeholder='search'
+          value={ this.state.input }
 
-  // searchDistricts(searchTerm) {
-  //
-  //
-  // };
-
-  // render() {
-  //   return(
-  //
-  //   {<input placeholder='search'
-  //           value={ this.state.input }
-  //           onKeyDown={ e => {
-  //            this.handleChange('body', e) }
-  //            { this.searchDistricts }/>}
-  //           }
-  //   )
-  // }
-
-};
+          onChange={
+            this.setInputState.bind(this)}/>
+        </div>
+    )
+  };
+}

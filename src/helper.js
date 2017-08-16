@@ -6,11 +6,18 @@ export default class DistrictRepository {
   newData(data) {
     return data.reduce((acc, elem) => {
       if(!acc[elem.Location]) {
-        acc[elem.Location] = {location: elem.Location.toUpperCase(), data: {}}
+        acc[elem.Location] = {location: elem.Location.toUpperCase(), data: {}, id: this.guidGenerator()}
       }
         acc[elem.Location].data[elem.TimeFrame] = Math.round(1000 * elem.Data)/1000 || 0;
       return acc
     }, {})
+  }
+
+  guidGenerator() {
+    let S4 = () => {
+       return (((1+Math.random())*0x10000)|0).toString(16).substring(1);
+    };
+    return (S4()+S4()+"-"+S4()+"-"+S4()+"-"+S4()+"-"+S4()+S4()+S4());
   }
 
   findByName(name) {
@@ -28,6 +35,6 @@ export default class DistrictRepository {
       if(name) {
         return matches.filter(distName => distName.location.includes(name.toUpperCase()))
       }
-    return allData
+    return matches
   }
 }

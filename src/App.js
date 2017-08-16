@@ -5,31 +5,34 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 import Container from './Container'
 import './App.css';
 
+const districtInfo = new DistrictRepository(kinderData)
+
 class App extends Component {
   constructor() {
     super();
       this.state = {
-        data: []
+        data: districtInfo.findAllMatches()
       }
   }
 
-  searchDistricts() {
-    this.setState({
-      data: this.districtInfo.findAllMatches()
-    })
-  }
+  // searchDistricts() {
+  //   this.setState({
+  //     data: this.districtInfo.findAllMatches()
+  //   })
+  //   console.log(this.districtInfo.findAllMatches())
+  // }
 
-  componentDidMount() {
-    this.districtInfo = new DistrictRepository(kinderData)
-    this.searchDistricts();
-  }
+  // componentDidMount() {
+  //   // this.searchDistricts();
+  //   console.log(this.state.data)
+  // }
 
   render() {
-
+    console.log(this.state.data)
     return (
       <div>
         <h1>HeadCount</h1>
-          <Container districtInfo={ this.state.data } />
+          <Container districtData={ this.state.data } />
       </div>
     );
   }

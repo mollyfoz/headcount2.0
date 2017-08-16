@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import DistrictRepository from './helper';
+import Controls from './Controls.js';
 import Container from './Container'
 import './App.css';
 

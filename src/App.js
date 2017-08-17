@@ -16,22 +16,20 @@ class App extends Component {
   }
 
   searchDistricts(string) {
-    this.setState({
-      data: districtInfo.findAllMatches(string)
-    })
+    this.setState({ data: districtInfo.findAllMatches(string) })
   }
 
   render() {
-    console.log(this.state.data)
+
     return (
       <div>
         <header>
           <h1>HeadCount</h1>
-            <Controls  searchDistricts={ this.searchDistricts.bind(this) }/>
+          <Controls  searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
           <Container districtData={ this.state.data } />
       </div>
-    );
+    )
   }
 }
 

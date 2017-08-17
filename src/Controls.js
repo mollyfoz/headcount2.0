@@ -17,9 +17,9 @@ export default class Controls extends Component {
 
   render() {
     return(
-      <div>
-        <input
-          placeholder='search'
+      <div className='search-container'>
+        <input className='user-input'
+          placeholder='Search'
           value={ this.state.input }
 
           onChange={

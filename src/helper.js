@@ -28,9 +28,10 @@ export default class DistrictRepository {
     }
   }
 
-  districtAverage(arg) {
+  findAverage(arg) {
     let district = this.findByName(arg)
-    let districtArray = Object.values(district.data)
+    let districtArray = Object.keys(district.data).map((key)=>{return district.data[key]})
+    console.log(districtArray)
     let counter = districtArray.length
     let districtAVG = districtArray.reduce((sum, value)=>{
 
@@ -43,8 +44,8 @@ export default class DistrictRepository {
   }
 
   compareDistrictAverages(arg1, arg2) {
-    let districtOneAverage = this.districtAverage(arg1);
-    let districtTwoAverage = this.districtAverage(arg2);
+    let districtOneAverage = this.findAverage(arg1);
+    let districtTwoAverage = this.findAverage(arg2);
     console.log("dist1AVG: ", districtOneAverage)
     console.log("dist2AVG: ", districtTwoAverage)
     let districtAverages = (districtOneAverage / districtTwoAverage);
@@ -58,8 +59,6 @@ export default class DistrictRepository {
     let matches = allData.map(location => this.data[location])
 
       if(name) {
-        this.compareDistrictAverages(arg1, arg2)
-        // this.compareDistrictAverages("Colorado", "Academy 20")
         return matches.filter(distName => distName.location.includes(name.toUpperCase()))
       }
     return matches

@@ -25,7 +25,7 @@ class App extends Component {
       <div>
         <header>
           <h1>HeadCount</h1>
-          <Controls  searchDistricts={ this.searchDistricts.bind(this) } />
+          <Controls searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
           <Container districtData={ this.state.data } />
       </div>

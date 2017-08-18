@@ -18,19 +18,33 @@ describe('Searchbar iteration 3', () => {
     expect(wrapper.state().input).toEqual('')
   })
 
-  //not calling mockFn
-  test('it should update state onChange', () => {
-    const mockFn = jest.fn();
-    const value = 'c'
-    const comp = shallow(<Controls onChange={mockFn} />);
-    const inputField = comp.find('user-input');
+  test('should render an input field', () => {
+    const wrapper = shallow(<Controls />)
 
-      comp.simulate('change', {target: { value }});
-      expect(mockFn).toBeCalledWith(value);
-      expect(wrapper.state().input).toEqual(value)
+    expect(wrapper.find('.user-input').length).toEqual(1)
+  });
+
+  test('it should call searchDistricts with onChange', () => {
+    const mockFn2 = jest.fn()
+    const value = 'c'
+    const comp = mount(<Controls searchDistricts={mockFn2}/>)
+    const inputField = comp.find('.user-input')
+
+      inputField.simulate('change', {target: { value }});
+      expect(mockFn2).toBeCalled();
+
   })
 
-  //searchdist function is in the app, will test there
+  test('it should update state onChange', () => {
+    const mockFn = jest.fn()
+    const value = 'c'
+    const comp = mount(<Controls searchDistricts={mockFn}/>)
+    const inputField = comp.find('.user-input')
+
+      inputField.simulate('change', {target: { value }})
+      expect(comp.state().input).toEqual(value)
+  })
+
   test.skip('searchDistricts should return an array of districts containing the search term', () => {
 
   })

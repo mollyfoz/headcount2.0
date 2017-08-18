@@ -28,6 +28,28 @@ export default class DistrictRepository {
     }
   }
 
+  findAverage(arg) {
+    let district = this.findByName(arg)
+    let districtArray = Object.keys(district.data).map((key)=>{return district.data[key]})
+    console.log(districtArray)
+    let counter = districtArray.length
+    let districtAVG = districtArray.reduce((sum, value)=>{
+      return sum + value
+    }, 0);
+
+    return Math.round(1000 * (districtAVG/counter))/1000
+  }
+
+  compareDistrictAverages(arg1, arg2) {
+    let districtOneAverage = this.findAverage(arg1);
+    let districtTwoAverage = this.findAverage(arg2);
+    let districtAverages = Math.round(1000 * (districtOneAverage / districtTwoAverage))/1000;
+
+    return   {[arg1.toUpperCase()]: districtOneAverage,
+              [arg2.toUpperCase()]: districtTwoAverage,
+                        'compared': districtAverages};
+  }
+
   findAllMatches(name) {
     let allData = Object.keys(this.data);
     let matches = allData.map(location => this.data[location])
@@ -37,4 +59,8 @@ export default class DistrictRepository {
       }
     return matches
   }
+
+
+
+
 }

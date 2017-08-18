@@ -34,24 +34,20 @@ export default class DistrictRepository {
     console.log(districtArray)
     let counter = districtArray.length
     let districtAVG = districtArray.reduce((sum, value)=>{
-
-      sum = sum + value
-      return sum
+      return sum + value
     }, 0);
-      districtAVG = districtAVG/counter
-    return Math.round(1000 * districtAVG)/1000
 
+    return Math.round(1000 * (districtAVG/counter))/1000
   }
 
   compareDistrictAverages(arg1, arg2) {
     let districtOneAverage = this.findAverage(arg1);
     let districtTwoAverage = this.findAverage(arg2);
-    console.log("dist1AVG: ", districtOneAverage)
-    console.log("dist2AVG: ", districtTwoAverage)
-    let districtAverages = (districtOneAverage / districtTwoAverage);
-    districtAverages = Math.round(1000 * districtAverages)/1000
-    console.log('avg: ', districtAverages)
-    return districtAverages
+    let districtAverages = Math.round(1000 * (districtOneAverage / districtTwoAverage))/1000;
+
+    return   {[arg1.toUpperCase()]: districtOneAverage,
+              [arg2.toUpperCase()]: districtTwoAverage,
+                        'compared': districtAverages};
   }
 
   findAllMatches(name) {

@@ -8,9 +8,10 @@ const district = new DistrictRepository(kinderData)
 
 describe('Container iteration 2', () => {
   let wrapper;
+  let districts = Object.keys(district.data)
 
   beforeEach(() => {
-    wrapper = shallow(<Container districtData={Object.keys(district.data)} />)
+    wrapper = shallow(<Container districtData={districts} />)
   })
 
   test('Container should exist', () => {

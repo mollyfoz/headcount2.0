@@ -2,7 +2,7 @@
         Header & Search
 -----------------------------*/
 header {
-  background-color: #59514A;
+  background-color: #636363;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -38,6 +38,7 @@ h1 {
 -----------------------------*/
 
 .card-container {
+  background-image: url('../public/assets/hc.jpg');
   background-color: #BFBBBA;
   display: flex;
   flex-direction: row;
@@ -50,13 +51,13 @@ h1 {
 }
 
 .data-card {
-  background-color: #8C8887;
+  background-color: #c9c7c7;
   border-radius: 3%;
   display: flex;
   justify-content: center;
   flex-direction: column;
-  height: 310px;
-  width: 250px;
+  height: 320px;
+  width: 230px;
   margin: 5px 0;
   padding-bottom: 2px;
 }
@@ -66,18 +67,17 @@ h1 {
 -----------------------------*/
 
 h3 {
-  color: #F2F2F2;
-  word-wrap: normal;
-  text-align: center;
-  margin-bottom: 5px;
+  color: #565656;
+  word-wrap: wrap;
+  text-align: left;
+  margin: 5px 5px 5px 37px;
 }
 
-p {
-  color: #F2F2F2;
-  word-wrap: normal;
-  text-align: center;
+li {
+  list-style: none;
+  text-align: left;
 }
 
 .year-data {
-  margin: 3px;
+  margin: 3px 0;
 }

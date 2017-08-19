@@ -13,10 +13,11 @@ class App extends Component {
       this.state = {
         data: districtInfo.findAllMatches()
       }
+      console.log('mount 1')
   }
 
   searchDistricts(string) {
-    this.setState({ data: districtInfo.findAllMatches(string) })
+    this.setState({ data: districtInfo.findAllMatches(string)}, () => console.log('mount 2'))
   }
 
   render() {

@@ -1,20 +1,46 @@
-import React from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
-const Card = ({ location, data }) => {
-  const keys = Object.keys(data)
+export default class Card extends Component {
+  constructor() {
+    super()
 
-  let keyVals = keys.map((key, i) => {
-    return <p className='year-data' key={ i }> { key }: { data[key] } </p>
-  })
+  }
 
-  return (
-    <div className='data-card'>
-      <h3>{ location }</h3>
-        <div>
-          { keyVals }
+  render() {
+
+   const { location, data } = this.props
+   const keys = Object.keys(data)
+
+   let highScore = {
+     color: '#006666'
+   }
+   let lowScore = {
+     color: '#FF803E'
+   }
+
+    let keyVals = keys.map((key, i) => {
+      if (data[key] >= 0.5) {
+        return <li style={ highScore } className='year-data' key={ i }> { key }: { data[key] } </li>
+      } else {
+        return <li style={ lowScore } className='year-data' key={ i }> { key }: { data[key] } </li>
+      }
+    })
+
+    return (
+      <div className='data-card'>
+          <h3>{ location }</h3>
+        <div className='data-list'>
+          <ul>
+            { keyVals }
+          </ul>
         </div>
-    </div>
-  )
+      </div>
+    )
+  }
 }
 
-export default Card;
+Card.propTypes = {
+  location: PropTypes.string.isRequired,
+  data: PropTypes.object.isRequired
+}

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 export default class Controls extends Component {
   constructor() {
@@ -24,4 +26,8 @@ export default class Controls extends Component {
       </div>
     )
   }
+}
+
+Controls.propTypes = {
+  searchDistricts: PropTypes.func.isRequired
 }

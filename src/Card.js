@@ -18,11 +18,15 @@ export default class Card extends Component {
     }
   }
 
-  // componentWillUpdate(nextProps, nextState) {
-  //   if(nextProps.selected === true) {
-  //     this.div.style = 'border: none'
-  //   }
-  // }
+
+  componentWillUpdate(nextProps, nextState) {
+    if(nextState.selected === true) {
+      console.log(this.props)
+      this.div.style = 'border: solid 1px #FF803E'
+    } else {
+      this.div.style = 'border: none'
+    }
+  }
 
   render() {
 

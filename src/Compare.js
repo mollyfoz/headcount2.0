@@ -8,7 +8,7 @@ export default class Compare extends Component {
   }
 
   render() {
-    console.log(this.state)
+    console.log(this.props.compare)
     return(
     <h1> Compare Section </h1>
     )

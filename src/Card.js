@@ -11,6 +11,7 @@ export default class Card extends Component {
   }
 
   selectCard(e) {
+    console.log(this.props)
     if (this.state.selected === false) {
       this.setState({ selected: true },  () => console.log('clicked', this.state.selected) )
     } else {
@@ -22,6 +23,7 @@ export default class Card extends Component {
   componentWillUpdate(nextProps, nextState) {
     if(nextState.selected === true) {
       // this.props.addCompare(this)
+      console.log(this)
       console.log(this.props.addCompare, "boom!")
 
       this.div.style = 'border: solid 1px #FF803E'
@@ -44,7 +46,7 @@ export default class Card extends Component {
    }
 
    let selectedCard = {
-     border: 'solid 2px black'
+     border: 'solid 2px black',
    }
 
     let keyVals = keys.map((key, i) => {

@@ -3,10 +3,10 @@ import Card from './Card';
 import PropTypes from 'prop-types';
 
 
-const Container = ({ districtData }) => {
+const Container = ({ districtData, addCompare }) => {
 
   const districtArray = districtData.map(district=> {
-    return <Card key={district.id} data={district.data} location={district.location} addCompare/>
+    return <Card key={district.id} data={district.data} location={district.location} addCompare={addCompare} />
   })
 
   return (

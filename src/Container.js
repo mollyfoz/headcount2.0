@@ -6,7 +6,7 @@ import PropTypes from 'prop-types';
 const Container = ({ districtData }) => {
 
   const districtArray = districtData.map(district=> {
-    return <Card key={district.id} data={district.data} location={district.location}/>
+    return <Card key={district.id} data={district.data} location={district.location} addCompare/>
   })
 
   return (

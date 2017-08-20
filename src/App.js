@@ -22,6 +22,12 @@ class App extends Component {
     this.setState({ data: districtInfo.findAllMatches(string)})
   }
 
+  addCompare(district) {
+    console.log("App Boom!")
+    let compareArray = this.state.compare.push(district)
+    this.setState({ compare: compareArray})
+  }
+
   render() {
 
     return (
@@ -31,7 +37,9 @@ class App extends Component {
           <Controls searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
           <Compare/>
-          <Container districtData={ this.state.data } />
+          <Container districtData={ this.state.data}
+                     addCompare={ this.addCompare.bind(this)}
+            />
       </div>
     )
   }

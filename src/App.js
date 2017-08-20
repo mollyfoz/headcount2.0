@@ -3,7 +3,7 @@ import DistrictRepository from './helper';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
 import Controls from './Controls.js';
 import Container from './Container';
-import Compare from './Compare'
+// import Compare from './Compare';
 
 import './App.css';
 
@@ -24,20 +24,21 @@ class App extends Component {
 
   addCompare(district) {
     let compareArray = this.state.compare
-    let emptyArray = []
+    
     if (compareArray.length >= 2 ) {
       compareArray.shift()
       compareArray.shift()
-      console.log('compareEmpty', compareArray)
-      this.setState({ compare: [emptyArray]})
-      console.log('thisCompareAfter', this.state.compare)
+      this.setState({ compare: [] })
+      console.log(this.state.compare)
     }
     else if (compareArray.length <= 1) {
       compareArray.push(district)
       this.setState({ compare: compareArray})
-      console.log('thisCompareBefore', this.state.compare)
+      console.log(this.state.compare)
+
     }
   }
+
 
   render() {
 
@@ -47,13 +48,19 @@ class App extends Component {
           <h1>HeadCount</h1>
           <Controls searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
-          <Compare/>
-          <Container districtData={ this.state.data}
-                     addCompare={ this.addCompare.bind(this)}
-            />
+        <div>
+          <Container districtData={ this.state.data }
+                     addCompare={ this.addCompare.bind(this) } />
+        </div>
       </div>
     )
   }
 }
 
 export default App;
+
+// {
+//   (this.state.compare).length === 2 && <div className='compare-data'>
+//   <Compare working districtData={ this.state.compare } />
+//   </div>
+// }

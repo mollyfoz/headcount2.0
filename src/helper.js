@@ -4,9 +4,9 @@ export default class DistrictRepository {
   }
 
   newData(data) {
-    return data.reduce((acc, elem) => {
+    return data.reduce((acc, elem, index) => {
       if(!acc[elem.Location]) {
-        acc[elem.Location] = { location: elem.Location.toUpperCase(), data: {}, id: this.idGenerator() }
+        acc[elem.Location] = { location: elem.Location.toUpperCase(), data: {}, id: index }
       }
         acc[elem.Location].data[elem.TimeFrame] = Math.round(1000 * elem.Data)/1000 || 0;
       return acc
@@ -31,7 +31,6 @@ export default class DistrictRepository {
   findAverage(arg) {
     let district = this.findByName(arg)
     let districtArray = Object.keys(district.data).map((key)=>{return district.data[key]})
-    console.log(districtArray)
     let counter = districtArray.length
     let districtAVG = districtArray.reduce((sum, value)=>{
       return sum + value

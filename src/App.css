@@ -37,6 +37,18 @@ h1 {
       Card & Card Container
 -----------------------------*/
 
+.compare-data {
+  background-image: url('../public/assets/hc.jpg');
+  background-color: #BFBBBA;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 230px;
+  width: 100%;
+  margin: 0 auto;
+  overflow: scroll;
+}
+
 .card-container {
   background-image: url('../public/assets/hc.jpg');
   background-color: #BFBBBA;

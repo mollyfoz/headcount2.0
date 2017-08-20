@@ -1,15 +1,23 @@
-import React, { Component } from 'react';
-import Card from './Card';
+import React from 'react';
+// import Card from './Card';
 
 const Compare = ({ districtData }) => {
 
   const compareCards = districtData.map((district, i) => {
-      return <Card key={i} data={district.data} location={district.location} />
+    const years = Object.keys(districtData[i].props.data)
+    const yearValues = Object.values(years[i].props.data)
+    const name = districtData[i].props.location
+    return <li className='year-data' key={ i }> { years[i] } : { yearValues[i] }  </li>
   })
 
   return (
     <div className='compare-container'>
-      { compareCards }
+      <div className='data-card'>
+              <h3>{ name }</h3>
+              <ul>
+                {compareCards}
+              </ul>
+            </div>
     </div>
   )
 }

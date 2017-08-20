@@ -3,9 +3,26 @@ import PropTypes from 'prop-types';
 
 export default class Card extends Component {
   constructor() {
-    super()
-
+    super();
+      this.selectCard = this.selectCard.bind(this)
+      this.state = {
+        selected: false,
+      }
   }
+
+  selectCard(e) {
+    if (this.state.selected === false) {
+      this.setState({ selected: true },  () => console.log('clicked', this.state.selected) )
+    } else {
+      this.setState({ selected: false },  () => console.log('clicked', this.state.selected) )
+    }
+  }
+
+  // componentWillUpdate(nextProps, nextState) {
+  //   if(nextProps.selected === true) {
+  //     this.div.style = 'border: none'
+  //   }
+  // }
 
   render() {
 
@@ -15,8 +32,13 @@ export default class Card extends Component {
    let highScore = {
      color: '#006666'
    }
+
    let lowScore = {
      color: '#FF803E'
+   }
+
+   let selectedCard = {
+     border: 'solid 2px black'
    }
 
     let keyVals = keys.map((key, i) => {
@@ -28,8 +50,8 @@ export default class Card extends Component {
     })
 
     return (
-      <div className='data-card'>
-          <h3>{ location }</h3>
+      <div ref={element => this.div = element} className='data-card' onClick={this.selectCard.bind(this)}>
+        <h3>{ location }</h3>
         <div className='data-list'>
           <ul>
             { keyVals }

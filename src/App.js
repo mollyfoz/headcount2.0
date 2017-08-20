@@ -17,7 +17,7 @@ class App extends Component {
   }
 
   searchDistricts(string) {
-    this.setState({ data: districtInfo.findAllMatches(string)}, () => console.log('mount 2'))
+    this.setState({ data: districtInfo.findAllMatches(string)})
   }
 
   render() {

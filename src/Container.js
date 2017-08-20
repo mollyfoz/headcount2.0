@@ -1,5 +1,7 @@
 import React from 'react';
 import Card from './Card';
+import DistrictRepository from './helper';
+
 
 const Container = ({ districtData }) => {
   const districtArray = districtData.map(district=> {

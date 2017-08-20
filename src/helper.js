@@ -60,6 +60,10 @@ export default class DistrictRepository {
     return matches
   }
 
+  handleClick() {
+    console.log('Boom!')
+  }
+
 
 
 

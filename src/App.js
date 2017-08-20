@@ -23,9 +23,20 @@ class App extends Component {
   }
 
   addCompare(district) {
-    console.log("App Boom!")
-    let compareArray = this.state.compare.push(district)
-    this.setState({ compare: compareArray})
+    let compareArray = this.state.compare
+    let emptyArray = []
+    if (compareArray.length >= 2 ) {
+      compareArray.shift()
+      compareArray.shift()
+      console.log('compareEmpty', compareArray)
+      this.setState({ compare: [emptyArray]})
+      console.log('thisCompareAfter', this.state.compare)
+    }
+    else if (compareArray.length <= 1) {
+      compareArray.push(district)
+      this.setState({ compare: compareArray})
+      console.log('thisCompareBefore', this.state.compare)
+    }
   }
 
   render() {

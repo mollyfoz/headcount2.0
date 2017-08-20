@@ -25,7 +25,7 @@ class App extends Component {
   addCompare(district) {
     let compareArray = this.state.compare
     let emptyArray = []
-    if (compareArray.length >= 2) {
+    if (compareArray.length >= 2 ) {
       compareArray.shift()
       compareArray.shift()
       console.log('compareEmpty', compareArray)

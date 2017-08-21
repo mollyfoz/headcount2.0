@@ -50,7 +50,8 @@ class App extends Component {
         </header>
         {
           (this.state.compare).length >= 1 && <div className='compare-data'>
-          <Compare districtData={ this.state.compare } />
+          <Compare districtData={ this.state.compare }
+                     addCompare={ this.addCompare.bind(this) }/>
           </div>
         }
         <div>

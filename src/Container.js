@@ -1,10 +1,11 @@
 import React from 'react';
 import Card from './Card';
-import Compare from './Compare';
 import PropTypes from 'prop-types';
 
 
 const Container = ({ districtData, addCompare }) => {
+
+  console.log("districtArray: ", districtData[0])
 
   const districtArray = districtData.map(district=> {
     return <Card key={district.id} data={district.data} location={district.location} addCompare={addCompare} />

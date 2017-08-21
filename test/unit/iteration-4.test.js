@@ -3,8 +3,6 @@ import kinderData from '../../data/kindergartners_in_full_day_program.js';
 import { Component } from 'react';
 import Controls from '../../src/Controls.js';
 
-// import { shallow, mount } from 'enzyme';
-
 
 describe('DistrictRepository iteration 0', () =>  {
   const district = new DistrictRepository(kinderData);

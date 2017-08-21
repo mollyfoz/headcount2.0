@@ -42,7 +42,7 @@ h1 {
   background-color: #BFBBBA;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
   height: 330px;
   width: 100%;
   margin: 0 auto;
@@ -73,6 +73,15 @@ h1 {
   padding-bottom: 2px;
 }
 
+.compared-vals {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 330px;
+  padding: 6px;
+  margin: 5px 5px;
+}
+
 /*---------------------------
       Card Data
 -----------------------------*/
@@ -91,4 +100,74 @@ li {
 
 .year-data {
   margin: 3px 0;
+}
+
+/*---------------------------
+      Media Queries
+-----------------------------*/
+@media screen and (max-width: 1260px) {
+  .card-container {
+    justify-content: center;
+  }
+
+  .data-card {
+    margin: 5px 5px;
+  }
+}
+
+@media screen and (max-width: 905px) {
+  .card-container {
+    justify-content: center;
+  }
+
+  .data-card {
+    margin: 5px 5px;
+    width: 200px;
+  }
+
+  h3 {
+    font-size: 18px;
+  }
+
+  .compared-vals {
+    width: 200px;
+    margin-left: 0;
+    padding-left: 0;
+  }
+}
+
+@media screen and (max-width: 905px) {
+  .card-container {
+    justify-content: flex-start;
+  }
+
+  .data-card {
+    margin: 5px 5px;
+  }
+
+  .compared-vals {
+    width: 180px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .card-container {
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .data-card {
+    margin: 5px 5px;
+    width: 180px;
+    height: 100px;
+  }
+
+  .compared-vals {
+    width: 180px;
+  }
+
+  .year-data {
+    display: none;
+  }
 }

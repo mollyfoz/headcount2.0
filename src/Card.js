@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 
 export default class Card extends Component {
   constructor() {
@@ -59,4 +59,8 @@ export default class Card extends Component {
       </div>
     )
   }
+}
+
+Card.propTypes = {
+  districtData: PropTypes.func
 }

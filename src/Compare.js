@@ -7,8 +7,6 @@ import DistrictRepository from './helper';
 
 const Compare = ({ districtData, addCompare }) => {
 
-  console.log("compareArray: ", districtData[0])
-
   const districtArray = districtData.map((district, i)=> {
     return <Card key={ districtData[i].props.location } data={districtData[i].props.data} location={districtData[i].props.location} addCompare={addCompare} />
   })
@@ -17,6 +15,9 @@ const Compare = ({ districtData, addCompare }) => {
     <div className='card-container'>
       { districtArray }
     </div>
+    // <div className='compare-card'>
+
+    // </div>
   )
 
 

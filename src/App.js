@@ -4,6 +4,7 @@ import kinderData from '../data/kindergartners_in_full_day_program.js';
 import Controls from './Controls.js';
 import Container from './Container';
 import Compare from './Compare';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 
 import './App.css';
 
@@ -55,11 +56,13 @@ class App extends Component {
           <h1>HeadCount</h1>
           <Controls searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
+
         {
-          (this.state.compare).length >= 1 && <div className='compare-data'>
+          (this.state.compare).length >= 2 && <div className='compare-data'>
           <Compare districtData={ this.state.compare }
                      addCompare={ this.addCompare.bind(this) }/>
                   <div className='compared-vals'>
+                      <h3 className='compare-title'>COMPARISON</h3>
                      <h4>{compareKeys[0]} : {this.state.compareResult[compareKeys[0]]}</h4>
                      <h4>
                        {compareKeys[2]} : {this.state.compareResult[compareKeys[2]]}

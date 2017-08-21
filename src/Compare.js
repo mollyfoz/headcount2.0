@@ -10,7 +10,7 @@ const Compare = ({ districtData, addCompare }) => {
   })
 
   return (
-    <div className='card-container'>
+    <div className='compare-card-container'>
       { districtArray }
     </div>
   )

@@ -45,8 +45,4 @@ describe('Searchbar iteration 3', () => {
       expect(comp.state().input).toEqual(value)
   })
 
-  test.skip('searchDistricts should return an array of districts containing the search term', () => {
-
-  })
-
 })

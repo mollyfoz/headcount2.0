@@ -30,7 +30,6 @@ class App extends Component {
         compareArray.shift()
         compareArray.shift()
         this.setState({ compare: [] })
-        console.log(this.state.compare)
     } else if (compareArray.length === 1) {
         compareArray.push(district)
         this.setState({ compare: compareArray})
@@ -38,10 +37,7 @@ class App extends Component {
         let districtTwo = this.state.compare[1].props.location
         let compareResponse = districtInfo.compareDistrictAverages(districtOne, districtTwo)
 
-        console.log(districtOne)
-        console.log(districtTwo)
         this.state.compareResult = compareResponse
-        console.log(this.state.compareResult)
     } else if (compareArray.length === 0) {
         compareArray.push(district)
         this.setState({ compare: compareArray})
@@ -52,7 +48,7 @@ class App extends Component {
   render() {
 
     let compareKeys = Object.keys(this.state.compareResult)
-    console.log("keys: ", compareKeys[0])
+
     return (
       <div>
         <header>
@@ -63,11 +59,13 @@ class App extends Component {
           (this.state.compare).length >= 1 && <div className='compare-data'>
           <Compare districtData={ this.state.compare }
                      addCompare={ this.addCompare.bind(this) }/>
-                   <h3>{compareKeys[0]}:{this.state.compareResult[compareKeys[0]]}</h3>
-                   <h3>
-                     {compareKeys[2]}: {this.state.compareResult[compareKeys[2]]}
-                   </h3>
-                   <h3>{compareKeys[1]}:{this.state.compareResult[compareKeys[1]]}</h3>
+                  <div className='compared-vals'>
+                     <h4>{compareKeys[0]} : {this.state.compareResult[compareKeys[0]]}</h4>
+                     <h4>
+                       {compareKeys[2]} : {this.state.compareResult[compareKeys[2]]}
+                     </h4>
+                     <h4>{compareKeys[1]} : {this.state.compareResult[compareKeys[1]]}</h4>
+                  </div>
           </div>
         }
         <div>

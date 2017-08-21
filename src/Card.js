@@ -20,7 +20,6 @@ export default class Card extends Component {
     }
   }
 
-
   componentWillUpdate(nextProps, nextState) {
     if(nextState.selected === true) {
       this.div.style = 'border: solid 1px #FF803E'

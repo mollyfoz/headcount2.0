@@ -48,6 +48,14 @@ h1 {
   margin: 0 auto;
 }
 
+.compare-card-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  height: 330px;
+  width: 70%;
+}
+
 .card-container {
   background-image: url('../public/assets/hc.jpg');
   background-color: #BFBBBA;
@@ -69,7 +77,7 @@ h1 {
   flex-direction: column;
   height: 320px;
   width: 230px;
-  margin: 5px 0;
+  margin: 5px 5px;
   padding-bottom: 2px;
 }
 
@@ -77,7 +85,7 @@ h1 {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 330px;
+  width: 40%;
   padding: 6px;
   margin: 5px 5px;
 }
@@ -93,6 +101,10 @@ h3 {
   margin: 5px 5px 5px 37px;
 }
 
+h4 {
+  color: #006666;
+}
+
 li {
   list-style: none;
   text-align: left;
@@ -102,72 +114,52 @@ li {
   margin: 3px 0;
 }
 
+.compare-title {
+  margin-left: 5px;
+  text-decoration: underline;
+}
+
 /*---------------------------
       Media Queries
 -----------------------------*/
-@media screen and (max-width: 1260px) {
-  .card-container {
-    justify-content: center;
-  }
 
+@media screen and (max-width: 600px) {
   .data-card {
-    margin: 5px 5px;
-  }
-}
-
-@media screen and (max-width: 905px) {
-  .card-container {
-    justify-content: center;
+    width: 210px;
   }
 
-  .data-card {
-    margin: 5px 5px;
-    width: 200px;
+  .compared-vals {
+    width: 80%;
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 16px;
+    margin: 0 auto;
   }
 
-  .compared-vals {
+}
+
+@media screen and (max-width: 565px) {
+  .compare-card-container {
+    display: flex;
+    flex-direction: column;
+  }
+  .compare-card-container .data-card {
     width: 200px;
-    margin-left: 0;
-    padding-left: 0;
   }
-}
-
-@media screen and (max-width: 905px) {
-  .card-container {
-    justify-content: flex-start;
-  }
-
-  .data-card {
-    margin: 5px 5px;
-  }
-
-  .compared-vals {
-    width: 180px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .card-container {
-    justify-content: flex-start;
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .data-card {
-    margin: 5px 5px;
-    width: 180px;
-    height: 100px;
-  }
-
-  .compared-vals {
-    width: 180px;
-  }
-
-  .year-data {
+  .compare-card-container .data-card .year-data {
     display: none;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .compare-card-container .data-card {
+    width: 140px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .compare-card-container .data-card {
+    width: 110px;
   }
 }

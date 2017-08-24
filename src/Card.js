@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import PropTypes from 'prop-types';
 
 export default class Card extends Component {
@@ -49,14 +50,16 @@ export default class Card extends Component {
     })
 
     return (
-      <div key={ id } ref={ element => this.div = element } className='data-card' onClick={ this.selectCard.bind(this) }>
-        <h3>{ location }</h3>
-        <div className='data-list'>
-          <ul>
-            { nameVals }
-          </ul>
+        <div key={ id } ref={ element => this.div = element } className='data-card' onClick={ this.selectCard.bind(this) }>
+          <h3>{ location }</h3>
+          <div className='data-list'>
+            <ReactCSSTransitionGroup transitionName="card-anim" transitionAppear={true} transitionAppearTimeout={3000} transitionEnter={false} transitionLeave={false}>
+            <ul>
+              { nameVals }
+            </ul>
+            </ReactCSSTransitionGroup>
+          </div>
         </div>
-      </div>
     )
   }
 }

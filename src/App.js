@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import DistrictRepository from './helper';
 import kinderData from '../data/kindergartners_in_full_day_program.js';
+import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
 import Controls from './Controls.js';
 import Container from './Container';
 import Compare from './Compare';
-import ReactCSSTransitionGroup from 'react-transition-group/CSSTransitionGroup';
-
 import './App.css';
 
 const districtInfo = new DistrictRepository(kinderData)
@@ -52,10 +51,12 @@ class App extends Component {
 
     return (
       <div>
+      <ReactCSSTransitionGroup transitionName="anim" transitionAppear={true} transitionAppearTimeout={3000} transitionEnter={false} transitionLeave={false}>
         <header>
           <h1>HeadCount</h1>
           <Controls searchDistricts={ this.searchDistricts.bind(this) } />
         </header>
+        </ReactCSSTransitionGroup>
 
         {
           (this.state.compare).length >= 2 && <div className='compare-data'>

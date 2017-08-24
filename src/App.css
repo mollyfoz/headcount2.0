@@ -33,6 +33,15 @@ h1 {
   width: 250px;
 }
 
+.anim-appear {
+  opacity: 0.01;
+}
+
+.anim-appear.anim-appear-active{
+  opacity: 1;
+  transition: opacity 3s ease-in;
+}
+
 /*---------------------------
       Card & Card Container
 -----------------------------*/
@@ -89,6 +98,16 @@ h1 {
   padding: 6px;
   margin: 5px 5px;
 }
+
+.card-anim-appear {
+  opacity: 0.01;
+}
+
+.card-anim-appear.anim-appear-active{
+  opacity: 1;
+  transition: opacity 5s ease-in;
+}
+
 
 /*---------------------------
       Card Data

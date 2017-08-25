@@ -16,7 +16,6 @@ class App extends Component {
       this.state = {
         data: districtInfo.findAllMatches(),
         compare: [],
-        compareResult: {}
       }
   }
 
@@ -24,31 +23,37 @@ class App extends Component {
     this.setState({ data: districtInfo.findAllMatches(string)})
   }
 
+
+  compareDistrictAverages() {
+    let districtOne = this.state.compare[0]
+    let districtTwo = this.state.compare[1]
+    let districtOneAverage = districtInfo.findAverage(districtOne);
+    let districtTwoAverage = districtInfo.findAverage(districtTwo);
+    let districtAverages = Math.round(1000 * (districtOneAverage / districtTwoAverage))/1000;
+
+    }
+
   addCompare(district) {
     let compareArray = this.state.compare
 
     if (compareArray.length >= 2 ) {
         compareArray.shift()
-        compareArray.shift()
-        this.setState({ compare: [] })
-    } else if (compareArray.length === 1) {
         compareArray.push(district)
-        this.setState({ compare: compareArray})
-        let districtOne = this.state.compare[0].props.location
-        let districtTwo = this.state.compare[1].props.location
-        let compareResponse = districtInfo.compareDistrictAverages(districtOne, districtTwo)
+        this.compareDistrictAverages()
+    } else if (compareArray.length === 1) {
+        console.log('length1')
 
-        this.state.compareResult = compareResponse
+        compareArray.push(district)
+        this.compareDistrictAverages()
+
     } else if (compareArray.length === 0) {
         compareArray.push(district)
-        this.setState({ compare: compareArray})
-    }
+      }
+    this.setState({ compare: compareArray})
   }
 
 
   render() {
-
-    let compareKeys = Object.keys(this.state.compareResult)
 
     return (
       <div>
@@ -59,15 +64,13 @@ class App extends Component {
 
         {
           (this.state.compare).length >= 2 && <div className='compare-data'>
-          <Compare districtData={ this.state.compare }
+          <Compare districtData={ this.compareDistrictAverages }
                      addCompare={ this.addCompare.bind(this) }/>
                   <div className='compared-vals'>
                       <h3 className='compare-title'>COMPARISON</h3>
-                     <h4>{compareKeys[0]} : {this.state.compareResult[compareKeys[0]]}</h4>
-                     <h4>
-                       {compareKeys[2]} : {this.state.compareResult[compareKeys[2]]}
-                     </h4>
-                     <h4>{compareKeys[1]} : {this.state.compareResult[compareKeys[1]]}</h4>
+                     <h4>{this.compareDistrictAverages.districtOne} : {this.compareDistrictAverages.districtOneAverage}</h4>
+                    <h4>{this.compareDistrictAverages.districtTwo} : {this.compareDistrictAverages.districtTwoAverage}</h4>
+                     <h4>'Compared' : {this.compareDistrictAverages.districtAverages}</h4>
                   </div>
           </div>
         }

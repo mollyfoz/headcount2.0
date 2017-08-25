@@ -39,7 +39,7 @@ h1 {
 
 .anim-appear.anim-appear-active{
   opacity: 1;
-  transition: opacity 3s ease-in;
+  transition: opacity 2s ease-in;
 }
 
 /*---------------------------
@@ -105,7 +105,7 @@ h1 {
 
 .card-anim-appear.anim-appear-active{
   opacity: 1;
-  transition: opacity 5s ease-in;
+  transition: opacity 1s ease-in;
 }
 
 
